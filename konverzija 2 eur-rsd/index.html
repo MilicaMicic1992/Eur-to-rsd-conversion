@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUR RSD</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Unesite vrednost</td>
+        <td><input type="number" id="vrednost"></td>
+    </tr>
+    <tr>
+        <td>Konvertuj</td>
+        <td>
+            <input type="radio" name="opcija" id="rsd_eur" checked>RSD=>EUR
+            <input type="radio" name="opcija" id="eur_rsd">EUR=>RSD
+        </td>
+    </tr>
+    <tr>
+        <td><button id="konvertuj">Konvertuj</button></td>
+    </tr>
+</table>
+<p id="konverzija"></p>
+<script>
+        const button_konvertuj = document.getElementById("konvertuj")
+        function klik_konvertuj (){
+            const input_vrednost = document.getElementById("vrednost")
+            const radio_rsd_eur = document.getElementById("rsd_eur")
+            const p_konverzija = document.getElementById("konverzija")
+
+            const vrednost = Number (input_vrednost.value)
+            if (radio_rsd_eur.checked){
+                p_konverzija.innerHTML = vrednost + " RSD =>" + " "+
+                (vrednost / 117.5) + " " + "EUR"
+            }else{p_konverzija.innerHTML = vrednost + " EUR =>" + " "+
+                (vrednost * 117.5) + " " + "RSD"
+
+            }
+        }
+        button_konvertuj.onclick = klik_konvertuj
+
+
+</script>
+
+</body>
+</html>
